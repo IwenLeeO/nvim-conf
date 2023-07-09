@@ -1,35 +1,15 @@
 local M = {}
 
 local function config_dapi_and_sign()
-  local dap_install = require "dap-install"
-  dap_install.setup {
-    installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
-  }
+  vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939' })
+  vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef' })
+  vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379' })
+  vim.fn.sign_define('DapBreakpoint', { text='󰧟', texthl='DapBreakpoint', linehl ='', numhl ='DapBreakpoint' })
 
-  local dap_breakpoint = {
-    error = {
-      text = "",
-      texthl = "LspDiagnosticsSignError",
-      linehl = "",
-      numhl = "",
-    },
-    rejected = {
-      text = "",
-      texthl = "LspDiagnosticsSignHint",
-      linehl = "",
-      numhl = "",
-    },
-    stopped = {
-      text = "󰓛",
-      texthl = "LspDiagnosticsSignInformation",
-      linehl = "DiagnosticUnderlineInfo",
-      numhl = "LspDiagnosticsSignInformation",
-    },
-  }
-
-  vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
-  vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
-  vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+  vim.fn.sign_define('DapBreakpointCondition', { text='', texthl='DapBreakpoint' })
+  vim.fn.sign_define('DapBreakpointRejected', { text='󰰟', texthl='DapBreakpoint' })
+  vim.fn.sign_define('DapLogPoint', { text='󰯾', texthl='DapLogPoint' })
+  vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl = '', numhl = 'DapStopped' })
 end
 
 local function config_dapui()
@@ -52,11 +32,10 @@ local function config_debuggers()
   -- the "30" of "30vsplit: doesn't work
   -- dap.defaults.fallback.terminal_win_cmd = '30vsplit new' -- this will be overrided by dapui
   -- dap.set_log_level("DEBUG")
-
+  config_dapi_and_sign()
   -- load from json file
   -- config per launage
   -- require("user.dap.di-go")
-
   require("user.dap-config.dap-python")
   -- require("config.dap.python").setup()
   -- require("config.dap.go").setup()
@@ -64,7 +43,6 @@ local function config_debuggers()
 end
 
 function M.setup()
-  config_dapi_and_sign()
   config_dapui()
   config_debuggers() -- Debugger
 end
