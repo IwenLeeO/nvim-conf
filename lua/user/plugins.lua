@@ -107,6 +107,14 @@ return packer.startup(function(use)
   use "theHamsta/nvim-dap-virtual-text"
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
+  use {"0x00-ketsu/maximizer.nvim",
+    config = function()
+      require ("maximizer").setup{
+
+      }
+    end
+  }
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

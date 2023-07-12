@@ -81,6 +81,8 @@ keymap("n", "<leader>dv", "<cmd>lua require'dap'.step_over()<cr>",opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>",opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>",opts)
 
+
+keymap("n", "<leader><leader>.", "<cmd>lua require('maximizer').toggle()<cr>", opts)
 -- keymap("n", "leader")
 -- Terminal --
 -- Better terminal navigation
