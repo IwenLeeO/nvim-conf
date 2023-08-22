@@ -19,7 +19,7 @@ dap.configurations.python = {
         return venv_path .. "/bin/python"
       end
       -- return "/usr/bin/python/"
-      return "/home/iwen/.pyenv/versions/3.6.5/envs/infinity-stone/bin/python"
+      return "/home/wenhao_li/.pyenv/versions/3.6.5/envs/infinity-stone"
     end
   }
 }
