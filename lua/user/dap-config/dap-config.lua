@@ -40,6 +40,8 @@ local function config_debuggers()
   -- require("config.dap.python").setup()
   -- require("config.dap.go").setup()
   require("user.dap-config.dap-go")
+
+  require("user.dap-config.dap-cpp")
 end
 
 function M.setup()
