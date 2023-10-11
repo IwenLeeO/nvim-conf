@@ -45,15 +45,20 @@ return packer.startup(function(use)
   use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim"}
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
-  use { "kyazdani42/nvim-web-devicons" }
-  use { "kyazdani42/nvim-tree.lua" }
+  -- use { "kyazdani42/nvim-web-devicons" }
+  use { "nvim-tree/nvim-web-devicons" }
+  use { "nvim-tree/nvim-tree.lua" }
+  -- use { "kyazdani42/nvim-tree.lua" }
   use { "akinsho/bufferline.nvim" }
 	use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" } -- line bottle
   use { "akinsho/toggleterm.nvim" }
   use { "ahmedkhalf/project.nvim" }
   use { "lewis6991/impatient.nvim" }
-  use { "lukas-reineke/indent-blankline.nvim" }
+  use { 
+    "lukas-reineke/indent-blankline.nvim",
+    tag = 'v2.20.2'
+  }
   use { "goolord/alpha-nvim" }
 	use {"folke/which-key.nvim"}
 
