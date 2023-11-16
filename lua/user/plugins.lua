@@ -105,6 +105,8 @@ return packer.startup(function(use)
   use {
     "ravenxrz/nvim-dap"
   }
+
+  use 'leoluz/nvim-dap-go'
   use {"rcarriga/nvim-dap-ui"}
   use "theHamsta/nvim-dap-virtual-text"
 	-- Automatically set up your configuration after cloning packer.nvim
